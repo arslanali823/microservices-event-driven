@@ -25,8 +25,3 @@ WORKDIR /app
 # copy all to files from First (.) represents main project folder and second (.) represents WORKDIR i.e app
 COPY . .
 RUN composer install
-
-CMD php artisan serve --host=0.0.0.0
-
- # exposing port
-EXPOSE 8000

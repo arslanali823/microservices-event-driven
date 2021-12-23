@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 
 class ProductController extends Controller
 {
@@ -21,6 +21,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = Product::create($request->only('title', 'image'));
+
         return response($product, Response::HTTP_CREATED);
     }
 
@@ -28,6 +29,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->update($request->only('title', 'image'));
+
         return response($product, Response::HTTP_ACCEPTED);
     }
 
